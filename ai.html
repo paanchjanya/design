@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World of Artificial Intelligence</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        .animate-slide-in {
+            animation: slideIn 1s ease-out;
+        }
+        .section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans overflow-x-hidden">
+    <div class="container mx-auto px-4 scroll-smooth">
+        <!-- Hero Section -->
+        <section class="section flex items-center justify-center relative">
+            <div class="text-center animate-fade-in">
+                <h1 class="text-6xl font-bold mb-4 text-blue-400">Artificial Intelligence</h1>
+                <p class="text-xl mb-8 text-gray-300">Transforming the World, One Algorithm at a Time</p>
+                <img src="img3.jpeg" alt="AI Technology" class="mx-auto rounded-lg shadow-2xl mb-8">
+            </div>
+        </section>
+
+        <!-- AI Usage Section -->
+        <section class="section flex items-center justify-center relative">
+            <div class="grid md:grid-cols-2 gap-8 items-center animate-slide-in">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-blue-300">How AI is Used</h2>
+                    <ul class="space-y-4">
+                        <li class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-200">Healthcare</h3>
+                            <p>Diagnostic assistance, drug discovery, personalized treatment plans</p>
+                        </li>
+                        <li class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-200">Finance</h3>
+                            <p>Fraud detection, algorithmic trading, risk assessment</p>
+                        </li>
+                        <li class="bg-gray-800 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-200">Technology</h3>
+                            <p>Natural language processing, autonomous systems, predictive analytics</p>
+                        </li>
+                    </ul>
+                </div>
+                <img src="img5.jpeg" alt="AI Applications" class="rounded-lg shadow-2xl">
+            </div>
+        </section>
+
+        <!-- AI Features Section -->
+        <section class="section flex items-center justify-center relative">
+            <div class="text-center animate-fade-in">
+                <h2 class="text-4xl font-bold mb-8 text-blue-300">Key AI Features</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-2xl mb-4 text-blue-200">Machine Learning</h3>
+                        <p>Ability to learn and improve from experience without explicit programming</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-2xl mb-4 text-blue-200">Neural Networks</h3>
+                        <p>Complex computational models mimicking human brain's neural structure</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-2xl mb-4 text-blue-200">Deep Learning</h3>
+                        <p>Advanced machine learning using multi-layered neural networks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Optional: Add smooth scrolling and additional interactivity
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

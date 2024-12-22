@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Chronicles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const animeData = [
+            {
+                id: 1,
+                title: "Hunter x Hunter",
+                description: "An epic adventure following Gon Freecss as he searches for his father and becomes a Hunter.",
+                rating: 9.5,
+                coverImage: "https://th.bing.com/th/id/R.9027d4350fb0241d0cdde9ccf334e5e2?rik=WO84O7%2f9wFEilw&pid=ImgRaw&r=0",
+                highlights: [
+                    "Complex Character Development",
+                    "Unique Power System (Nen)",
+                    "Incredible Story Arcs"
+                ]
+            },
+            {
+                id: 2,
+                title: "Fullmetal Alchemist: Brotherhood",
+                description: "Two brothers seek the Philosopher's Stone to restore their bodies after a forbidden alchemical ritual.",
+                rating: 9.7,
+                coverImage: "https://th.bing.com/th/id/OIP.OcKEsn6IgZzsgV2TnfxMlAHaFj?rs=1&pid=ImgDetMain",
+                highlights: [
+                    "Philosophical Themes",
+                    "Perfect Narrative Balance",
+                    "Emotional Depth"
+                ]
+            },
+
+            {
+                
+                id: 3,
+                title: "Naurto",
+                description: "An epic adventure following Gon Freecss as he searches for his father and becomes a Hunter.",
+                rating: 9.5,
+                coverImage: "https://c1.staticflickr.com/3/2275/2313689196_8d30480001.jpg",
+                highlights: [
+                    "Complex Character Development",
+                    "Unique Power System (Nen)",
+                    "Incredible Story Arcs"
+                ]
+            } ,
+            {
+                id: 4,
+                title: "Demon Slayer",
+                description: "An epic adventure following Gon Freecss as he searches for his father and becomes a Hunter.",
+                rating: 9.5,
+                coverImage: "https://th.bing.com/th/id/R.93453d145d70f75cf15fd5c3a4e1b247?rik=0V6tcWdcg6bbug&riu=http%3a%2f%2fpm1.aminoapps.com%2f7387%2f089ecd5503aa4c2c140e19d5a5822f1402ebc1ffr1-2048-1457v2_uhq.jpg&ehk=6PZVLE1%2fQ3yAXmG3IVzGhuPEp0Pfh793jNlqD4TwpIE%3d&risl=&pid=ImgRaw&r=0",
+                highlights: [
+                    "Complex Character Development",
+                    "Unique Power System (Nen)",
+                    "Incredible Story Arcs"
+                ]
+            }
+        ];
+
+        const AnimeCard = ({ anime }) => {
+            return (
+                <div className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl m-4">
+                    <img 
+                        src={anime.coverImage} 
+                        alt={anime.title} 
+                        className="w-full h-64 object-cover"
+                    />
+                    <div className="p-6">
+                        <h2 className="text-2xl font-bold text-gray-800 mb-2">{anime.title}</h2>
+                        <p className="text-gray-600 mb-4">{anime.description}</p>
+                        
+                        <div className="flex items-center mb-4">
+                            <span className="text-yellow-500 text-lg font-bold mr-2">Rating:</span>
+                            <div className="w-full bg-gray-200 rounded-full h-2.5">
+                                <div 
+                                    className="bg-yellow-400 h-2.5 rounded-full" 
+                                    style={{width: `${anime.rating * 10}%`}}
+                                ></div>
+                            </div>
+                            <span className="ml-2 text-sm text-gray-600">{anime.rating}/10</span>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-gray-700 mb-2">Highlights:</h3>
+                            <ul className="list-disc list-inside text-gray-600">
+                                {anime.highlights.map((highlight, index) => (
+                                    <li key={index} className="mb-1">{highlight}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const App = () => {
+            return (
+                <div className="container mx-auto px-4">
+                    <header className="text-center py-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                        <h1 className="text-4xl font-extrabold mb-4 animate-pulse">Anime Chronicles</h1>
+                        <p className="text-xl">Exploring the World of Extraordinary Animation</p>
+                    </header>
+
+                    <main className="grid md:grid-cols-2 gap-6 mt-8">
+                        {animeData.map(anime => (
+                            <AnimeCard key={anime.id} anime={anime} />
+                        ))}
+                    </main>
+
+                    <footer className="text-center py-6 mt-8 bg-gray-800 text-white">
+                        <p>© 2024 Anime Chronicles. Passion Meets Animation.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

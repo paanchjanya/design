@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Earth: The Mother Land</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .earth-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transform: translateZ(50px);
+            transition: all 0.5s;
+        }
+
+        .earth-title:hover {
+            transform: scale(1.05) translateZ(80px);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+            animation: slideUp 1s ease-out 0.5s backwards;
+        }
+
+        .btn-explore {
+            padding: 15px 30px;
+            background-color: #2ecc71;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-explore:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.5s;
+        }
+
+        .btn-explore:hover:before {
+            left: 100%;
+        }
+
+        .btn-explore:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .earth-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="%2334495e"/></svg>') no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+            z-index: -1;
+            animation: earthRotate 10s linear infinite;
+        }
+
+        .earth-details {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s;
+        }
+
+        .earth-details.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            width: 200px;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes earthRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="earth-bg"></div>
+        <h1 class="earth-title">Earth</h1>
+        <h2 class="subtitle">The Mother Land</h2>
+        <a href="#" class="btn-explore">Explore Our Planet</a>
+        
+        <div class="earth-details">
+            <div class="detail-item">
+                <h3>Biodiversity</h3>
+                <p>Home to millions of species</p>
+            </div>
+            <div class="detail-item">
+                <h3>Ecosystem</h3>
+                <p>Interconnected living systems</p>
+            </div>
+            <div class="detail-item">
+                <h3>Resources</h3>
+                <p>Sustaining life through balance</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const exploreBtn = document.querySelector('.btn-explore');
+            const earthDetails = document.querySelector('.earth-details');
+
+            exploreBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                earthDetails.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>
